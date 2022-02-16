@@ -1,0 +1,154 @@
+.home_wrapper{
+  display: flex;
+  flex-direction: row;
+  gap:30px;
+  //justify-content: center;
+  //align-items: center;
+  //max-width: 170px;
+  //width: 100%;
+  //height: 100vh;
+}
+
+.page_wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+
+.header_back{
+  font-weight: 600;
+  font-size:6.22px;
+  color:#8692A6;
+  text-decoration: none;
+}
+
+.header_main_wrapper{
+  display: flex;
+  align-items: center;
+  padding-left: 0;
+}
+
+.heading_main{
+  font-weight: 700;
+  font-size: 11.65px;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.heading_secondary{
+  color: #8692A6;
+  font-size:6.99px;
+  margin-top: 0;
+  text-align: left;
+}
+
+.heading_input{
+  font-size: 6.22px;
+  color: #696F79;
+  text-align: left;
+  //padding-left: 37px;
+}
+
+.form_field_wrapper{
+
+}
+
+.input_field{
+  max-width: 165.48px;
+  width: 100%;
+  height: 24.86px;
+  box-shadow: 0px 5.82667px 15.5378px 1.94222px #EDEDED;
+  border-radius: 11.6533px;
+  border:none;
+  padding-left: 10px;
+  font-family: inherit;
+  font-size: 5.44px;
+  color:#8692A6;
+}
+
+.password_wrapper{
+  position: relative;
+}
+
+.show_pasword_text{
+  position: absolute;
+  right: 1px;
+  bottom: 10px;
+  color: #000000;
+  font-size: 4.66px;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.checkbox_wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.checkbox_text{
+  font-size: 6.22px;
+  color:#696F79;
+}
+
+.checkbox_click{
+  width: 6px;
+}
+
+.btn_wrapper{
+  display: flex;
+  flex-direction: column;
+  gap:10px;
+}
+
+.login_btn{
+  border-radius: 11.6533px;
+  max-width: 165.48px;
+  width: 100%;
+  height: 24.86px;
+  font-family: inherit;
+  cursor: pointer;
+  font-size: 7.38px;
+  border: none;
+}
+
+.first_btn{
+  background-color: #8692A6;
+  color:#ffffff;
+
+  &:hover{
+    background-color: #696F79;
+    transition: 0.5s;
+  }
+}
+
+.second_btn{
+  background-color: #ffffff;
+  box-shadow: 0px 5.82667px 15.5378px 1.94222px #EDEDED;
+
+  &:hover{
+    background-color: #BABABA;
+    transition: 0.5s;
+  }
+}
+
+.btn_divider{
+  font-size: 4.66px;
+  font-family: inherit;
+  color:#BABABA;
+}
+
+.google_btn_wrapper{
+  position: relative;
+}
+
+.google_image{
+  position: absolute;
+  left: 13px;
+  bottom: 10px;
+}
