@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import './createQuiz.scss';
 import axios from 'axios';
 import Header from '../../components/header/header';
 import Sidebar from '../../components/sidebar/sidebar';
 
 type Quiz = {
-  title?: string,
+  title: string,
   timeLimit?: 'PT5S',
   questions: [
     {content: string,
@@ -21,29 +21,33 @@ type Quiz = {
 axios.defaults.headers.common['X-CSRF-TOKEN'] = localStorage.getItem('csrf') || '';
 
 const CreateQuiz = () => {
+  const [quiztitle, setQuizTitle] = useState('');
   const [question, setQuestion] = useState('');
-  const [imgUrl, setImgUrl] = useState('');
+  const [imgURL, setImgURL] = useState('');
   const [answer, setAnswer] = useState('');
 
-  // const csrfToken = '398794c5-95f2-4c12-8263-3d6ca1809447';
-
   const addQuiz = () => {
-    axios.post('account-api/accounts/quizzes', {
+    axios.put('account-api/quizzes', {
+      title: quiztitle,
+      timeLimit: 'PT5S',
       questions: [{
         content: question,
-        imageURL: imgUrl,
+        imageURL: imgURL,
+        points: 1,
         answers: [{
           content: answer,
           correct: true,
         }],
       }],
     })
-      .then((response) => console.log(response.data));
+      .then((response) => {
+        setQuizTitle(quiztitle);
+        setQuestion(question);
+        setImgURL(imgURL);
+        setAnswer(answer);
+      });
   };
 
-  // setQuestion('');
-  // setImgUrl('');
-  // setAnswer('');
   return (
     <div className="page_wrapper">
       <Header />
@@ -51,6 +55,15 @@ const CreateQuiz = () => {
         <Sidebar />
         <div className="quiz_wrapper">
           <div className="quiz_input_wrapper">
+            <h6 className="quiz_heading">Quiz title</h6>
+            <input
+              type="text"
+              className="quizz_input"
+              placeholder="Title"
+              value={quiztitle}
+              onChange={(e) => setQuizTitle(e.target.value)}
+            />
+
             <h6 className="quiz_heading">Question</h6>
             <input
               type="text"
@@ -65,8 +78,8 @@ const CreateQuiz = () => {
               type="text"
               className="quizz_input"
               placeholder="Insert image URL..."
-              value={imgUrl}
-              onChange={(e) => setImgUrl(e.target.value)}
+              value={imgURL}
+              onChange={(e) => setImgURL(e.target.value)}
             />
 
             <h6 className="quiz_heading">Answer</h6>

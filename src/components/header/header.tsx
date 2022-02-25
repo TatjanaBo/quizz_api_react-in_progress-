@@ -1,15 +1,15 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import { ReactComponent as Search } from './Vector (1).svg';
 import { ReactComponent as Profile } from './Ellipse 6.svg';
 import './header.scss';
 
-// axios.defaults.headers.common['X-CSRF-TOKEN'] = 'c7ff513c-aa36-4910-86aa-cd5fe9a391de';
 axios.defaults.headers.common['X-CSRF-TOKEN'] = localStorage.getItem('csrf') || '';
 
 const Header = () => {
   const startQuiz = () => {
-    axios.get('account-api/accounts/quizzes').then((response) => console.log(response.data));
+    axios.get('account-api/quizzes').then((response) => console.log(response.data));
   };
   return (
     <div className="header_wrapper">
@@ -26,7 +26,9 @@ const Header = () => {
       <div className="left_side_wrapper">
         <div>
           {' '}
-          <button className="header_button" onClick={startQuiz}>Start Quiz</button>
+          <Link to="/play">
+            <button className="header_button" onClick={startQuiz}>Start Quiz</button>
+          </Link>
         </div>
         <div className="profile_wrapper">
           <Profile />

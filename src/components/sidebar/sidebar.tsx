@@ -23,13 +23,6 @@ const Sidebar = () => (
       &nbsp;
       Notification
     </button>
-    {/* <Link to="/createquiz" className="createquiz_link"> */}
-    {/*  <button className="sidebar_button"> */}
-    {/*    <AiFillEdit /> */}
-    {/*    &nbsp; */}
-    {/*    Create a quizz */}
-    {/*  </button> */}
-    {/* </Link> */}
   </div>
 );
 
